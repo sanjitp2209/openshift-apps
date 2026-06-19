@@ -1,8 +1,7 @@
 FROM quay.io/ansible/ansible-runner:latest
 
-# Copy playbook
-COPY create_file.yml /runner/project/playbook.yml
+WORKDIR /runner/project
 
-# Default command
-CMD ["ansible-playbook", "/runner/project/playbook.yml"]
-``
+COPY create_file.yml playbook.yml
+
+CMD ["ansible-playbook", "playbook.yml"]
