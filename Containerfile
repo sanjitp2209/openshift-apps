@@ -1,7 +1,8 @@
-FROM registry.access.redhat.com/ubi9/ubi
+FROM quay.io/ansible/ansible-runner:latest
 
-RUN dnf install -y ansible && dnf clean all
+# Copy playbook
+COPY create_file.yml /runner/project/playbook.yml
 
-COPY create_file.yml /playbook.yml
-
-CMD ["ansible-playbook", "/playbook.yml"]
+# Default command
+CMD ["ansible-playbook", "/runner/project/playbook.yml"]
+``
