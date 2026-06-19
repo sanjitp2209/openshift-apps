@@ -4,4 +4,4 @@ WORKDIR /runner/project
 
 COPY create_file.yml playbook.yml
 
-CMD ["ansible-playbook", "playbook.yml"]
+CMD ansible-playbook playbook.yml && sleep 3600
