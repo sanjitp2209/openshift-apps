@@ -1,7 +1,5 @@
-FROM quay.io/ansible/ansible-runner:latest
+FROM registry.redhat.io/ansible-automation-platform-25/ansible-builder-rhel9:3.1.1-7
 
-WORKDIR /runner/project
+WORKDIR /runner
 
-COPY create_file.yml playbook.yml
-
-CMD ansible-playbook playbook.yml && sleep 3600
+CMD ["/bin/bash"]
